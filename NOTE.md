@@ -53,3 +53,20 @@ $$ Q_p = \frac{\omega_0}{1/R} = RC\omega_0 = R \sqrt{\frac{C}{L}} $$
 使用する周波数が高くなると回路素子は集中定数阻止として扱うことができなくなる。  
 素子が空間的に分布した状態になる。  
 回路内の電圧・電流は時間のみの関数ではなく、距離を含む形となり、時間経過とともに伝搬する波として扱う必要がある。
+
+2端子対回路の1次側・2次側にそれぞれ特性Impedance W1, W2である無損失伝送回路を接続し、定常正弦派交流で駆動する。
+2端子対回路の両端には入射波aと反射波bが存在する。$\sqrt{W_1}$と$\sqrt{W_2}$で正規化したa->bへの変換行列をS-Marixと呼ぶ。
+
+S-Matrix (Scattering Matrix)
+
+S-Matrixは回路に無損失回路を接続した場合の、入射・反射・透過によって決まる量であり、開放・短絡でも存在する。
+
+## 5. 2-type element circuit
+
+## 6. Shadow parameters
+
+## 7. Frequency conversion and operating characteristics theory
+
+## 8. Strain exchange and line spectrum
+
+## 9. Frequency response and signal transmission
