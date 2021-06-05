@@ -1,9 +1,12 @@
 class Transistor
-  Modelica.Electrical.Analog.Basic.Resistor rtc(R = 0.1) annotation(
+  parameter Real rtb_r=0.05;
+  parameter Real rtc_r=0.01;
+  parameter Real ct_c=1.0e-6;
+  Modelica.Electrical.Analog.Basic.Resistor rtc(R = rtc_r) annotation(
     Placement(visible = true, transformation(extent = {{40, 0}, {60, 20}}, rotation = 0)));
-  Modelica.Electrical.Analog.Basic.Resistor rtb(R = 0.05) annotation(
+  Modelica.Electrical.Analog.Basic.Resistor rtb(R = rtb_r) annotation(
     Placement(visible = true, transformation(extent = {{-80, -10}, {-60, 10}}, rotation = 0)));
-  Modelica.Electrical.Analog.Basic.Capacitor ct(C = 1e-10) annotation(
+  Modelica.Electrical.Analog.Basic.Capacitor ct(C = ct_c) annotation(
     Placement(visible = true, transformation(origin = {-40, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 270)));
   Modelica.Electrical.Analog.Interfaces.Pin c annotation(
     Placement(visible = true, transformation(extent = {{90, 50}, {110, 70}}, rotation = 0), iconTransformation(extent = {{90, 50}, {110, 70}}, rotation = 0)));
