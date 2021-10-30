@@ -5,7 +5,11 @@ import sympy as sp
 def f(a):
     return np.array([np.sin(a), np.cos(a)])
 
-z = ast.parse(inspect.getsource(f))
+def f2(a):
+    return np.array([1, np.sin(a)])
+
+def f3(a):
+    return f(a) + f2(a)
 
 translate = {'array': 'Array'}
 
@@ -22,9 +26,17 @@ class np_to_sp(ast.NodeTransformer):
             node = ast.copy_location(ast.Attribute(**fields), node)
         return node
 
-np_to_sp().visit(z)
+from types import FunctionType
 
-exec(compile(z, '', 'exec'))
+for fn in f3.__code__.co_names:
+    fo = globals()[fn]
+    if not isinstance(fo, FunctionType):
+        continue
+    z = ast.parse(inspect.getsource(fo))
+    np_to_sp().visit(z)
+    exec(compile(z, '', 'exec'))
 
 x = sp.Symbol('x')
 print(f(x))
+print(f2(x))
+print(f3(x))
