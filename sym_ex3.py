@@ -26,7 +26,7 @@ if __name__ == '__main__':
     print(opt, argc)
 
     x, a, b, c = sym.symbols("x a b c")
-    f = a * x**2 + b * x + c
+    f = a * x**2 + b * x + c + sym.sin(x)
 
     args = (x, a, b, c)
     func = sym.lambdify(args, f, "numpy")
