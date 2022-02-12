@@ -9,8 +9,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 
-from src.sym_sample import sample
 from src.base import plot3d
+from src.sym_sample import sample
 
 from sympy import Symbol
 from sympy.external import import_module
@@ -30,14 +30,10 @@ def mplot3d(f, var1, var2, *, show=True):
     obj.SavePng_Serial()
 
 
-def main():
+if __name__ == "__main__":
     x = Symbol('x')
     y = Symbol('y')
 
     mplot3d(x**2 - y**2, (x, -10.0, 10.0, 20), (y, -10.0, 10.0, 20))
     mplot3d(x**2 + y**2, (x, -10.0, 10.0, 20), (y, -10.0, 10.0, 20))
     mplot3d(sin(x) + sin(y), (x, -3.14, 3.14, 100), (y, -3.14, 3.14, 100))
-
-
-if __name__ == "__main__":
-    main()

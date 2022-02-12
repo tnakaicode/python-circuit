@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import sympy as sym
 import sys
 import os
 import time
@@ -11,7 +12,6 @@ from src.base import plot2d
 import logging
 logging.getLogger('matplotlib').setLevel(logging.ERROR)
 
-import sympy as sym
 
 if __name__ == '__main__':
     argvs = sys.argv

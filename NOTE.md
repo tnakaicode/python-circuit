@@ -2,6 +2,10 @@
 title: Steady circuit analysis with Python
 ---
 
+```bash
+pip install impedance
+```
+
 ## 1. Series Resonance Circuit
 
 Series RLC Circuit

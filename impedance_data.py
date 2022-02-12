@@ -8,8 +8,8 @@ from impedance.models.circuits import CustomCircuit
 from impedance.visualization import plot_nyquist
 from optparse import OptionParser
 
-sys.path.append(os.path.join("./src/"))
-from base import plot2d
+sys.path.append(os.path.join("./"))
+from src.base import plot2d
 
 import logging
 logging.getLogger('matplotlib').setLevel(logging.ERROR)

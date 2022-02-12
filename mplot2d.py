@@ -35,13 +35,9 @@ def mplot2d(f, var, *, show=True):
     plt.show()
 
 
-def main():
+if __name__ == "__main__":
     x = Symbol('x')
 
     # mplot2d(log(x), (x, 0, 2, 100))
     # mplot2d([sin(x), -sin(x)], (x, float(-2*pi), float(2*pi), 50))
     mplot2d([sqrt(x), -sqrt(x), sqrt(-x), -sqrt(-x)], (x, -40.0, 40.0, 80))
-
-
-if __name__ == "__main__":
-    main()
