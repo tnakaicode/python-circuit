@@ -6,7 +6,7 @@ import time
 from impedance import preprocessing
 from impedance.models.circuits import CustomCircuit
 from impedance.visualization import plot_nyquist
-from optparse import OptionParser
+import argparse
 
 sys.path.append(os.path.join("./"))
 from src.base import plot2d
@@ -16,12 +16,12 @@ logging.getLogger('matplotlib').setLevel(logging.ERROR)
 
 if __name__ == '__main__':
     argvs = sys.argv
-    parser = OptionParser()
-    parser.add_option("--dir", dest="dir", default="./")
-    parser.add_option("--pxyz", dest="pxyz",
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dir", dest="dir", default="./")
+    parser.add_argument("--pxyz", dest="pxyz",
                       default=[0.0, 0.0, 0.0], type="float", nargs=3)
-    opt, argc = parser.parse_args(argvs)
-    print(opt, argc)
+    opt = parser.parse_args()
+    print(opt, argvs)
 
     obj = plot2d()
     frequencies, Z = preprocessing.readCSV('impedance_data.csv')

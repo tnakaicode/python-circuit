@@ -4,7 +4,7 @@ import sympy as sym
 import sys
 import os
 import time
-from optparse import OptionParser
+import argparse
 
 from sympy.plotting import plot
 
@@ -16,12 +16,12 @@ logging.getLogger('matplotlib').setLevel(logging.ERROR)
 
 if __name__ == '__main__':
     argvs = sys.argv
-    parser = OptionParser()
-    parser.add_option("--dir", dest="dir", default="./")
-    parser.add_option("--pxyz", dest="pxyz",
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dir", dest="dir", default="./")
+    parser.add_argument("--pxyz", dest="pxyz",
                       default=[0.0, 0.0, 0.0], type="float", nargs=3)
-    opt, argc = parser.parse_args(argvs)
-    print(opt, argc)
+    opt = parser.parse_args()
+    print(opt, argvs)
 
     a, b, c, x, y = sym.symbols("a b c x y")
     f = sym.Function('f')
