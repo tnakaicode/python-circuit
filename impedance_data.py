@@ -31,6 +31,6 @@ if __name__ == '__main__':
 
     circuit = CustomCircuit(circuit, initial_guess=initial_guess)
     Z_fit = circuit.predict(frequencies)
-    plot_nyquist(obj.axs, Z)
-    plot_nyquist(obj.axs, Z_fit)
+    plot_nyquist(Z=Z, ax=obj.axs)
+    plot_nyquist(Z=Z_fit, ax=obj.axs)
     obj.SavePng()
