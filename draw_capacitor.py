@@ -53,3 +53,29 @@ d += logic.Line().at(X2.out).tox(O1.out).label('S', 'right')
 
 d.save("draw_logic.png", transparent=False)
 d.draw()
+
+d = schemdraw.Drawing()
+d.config(fontsize=10)
+d += elm.Line().length(d.unit / 5).label('V', 'left')
+d += (smu := elm.Opamp(sign=False).anchor('in2').label('SMU',
+      'center', ofst=[-.4, 0], halign='center', valign='center'))
+
+d += elm.Line().at(smu.out).length(.3)
+d.push()
+d += elm.Line().length(d.unit / 4)
+d += (triax := elm.Triax(length=5, shieldofststart=.75))
+d.pop()
+d += elm.Resistor().up().scale(0.6).idot()
+d += elm.Line().left().dot()
+d += elm.Wire('|-').to(smu.in1).hold()
+d += elm.Wire('|-').delta(d.unit / 5, d.unit / 5)
+d += (buf := elm.Opamp(sign=False).anchor('in2').scale(0.6)
+      .label('BUF', 'center', ofst=(-.4, 0), halign='center', valign='center'))
+
+d += elm.Line().left(d.unit / 5).at(buf.in1)
+d += elm.Wire('n').to(buf.out, dx=.5).dot()
+d += elm.Wire('-|').at(buf.out).to(triax.guardstart_top)
+d += elm.GroundChassis().at(triax.shieldcenter)
+
+d.save("draw_triaxial.png", transparent=False)
+d.draw()
