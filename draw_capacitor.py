@@ -4,9 +4,12 @@ from schemdraw import logic
 
 V1 = elm.SourceV().label('5V')
 S1 = elm.SwitchSpdt2(action='close').up().anchor('b').label('$t=0$', loc='rgt')
-R1 = elm.Resistor().down().label('$100\Omega$').label(['+', '$v_o$', '-'], loc='bot')
-#C1 = elm.Capacitor().at(S1.a).toy(V1.start).label('1$\mu$F').dot()
-#C1 = elm.Capacitor().label('1$\mu$F').dot()
+R1 = elm.Resistor().down().label('$100\Omega$').label(
+    ['+', '$v_o$', '-'], loc='bot')
+# C1 = elm.Capacitor().at(S1.a).toy(V1.start).label('1$\mu$F').dot()
+# C1 = elm.Capacitor().label('1$\mu$F').dot()
+
+print(V1.anchors)
 
 d = schemdraw.Drawing()
 d.add(V1)
@@ -15,7 +18,8 @@ d.add(S1)
 d.add(elm.Line().right(d.unit * .75).at(S1.c))
 d.add(R1)
 d.add(elm.Line().to(V1.start))
-d.add(elm.Capacitor().at(S1.a).toy(V1.start).label('1$\mu$F').dot())
+C1 = elm.Capacitor().at(S1.a).toy(V1.start).label('1$\mu$F').dot()
+d.add(C1)
 
 d.save("draw_capacitor.png", transparent=False)
 d.draw()
